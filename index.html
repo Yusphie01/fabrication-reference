@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Steel Grades & Welding Standards Reference</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #1e3c72;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #666;
+            font-size: 1.1em;
+        }
+
+        .nav-tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        .tab-btn {
+            padding: 12px 24px;
+            background: #f0f0f0;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: 600;
+            transition: all 0.3s;
+            color: #333;
+        }
+
+        .tab-btn:hover {
+            background: #e0e0e0;
+            transform: translateY(-2px);
+        }
+
+        .tab-btn.active {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            box-shadow: 0 4px 12px rgba(30, 60, 114, 0.3);
+        }
+
+        .content-section {
+            display: none;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 0.5s;
+        }
+
+        .content-section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h2 {
+            color: #1e3c72;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #2a5298;
+        }
+
+        h3 {
+            color: #2a5298;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+
+        .steel-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .steel-card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 5px solid #2a5298;
+            transition: all 0.3s;
+        }
+
+        .steel-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .steel-card h4 {
+            color: #1e3c72;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+
+        .steel-card p {
+            color: #555;
+            margin-bottom: 8px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        th {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+
+        .info-box {
+            background: #e3f2fd;
+            border-left: 4px solid #2196F3;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+
+        .warning-box {
+            background: #fff3e0;
+            border-left: 4px solid #ff9800;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+
+        .tag {
+            display: inline-block;
+            background: #2a5298;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.85em;
+            margin: 2px;
+        }
+
+        ul {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        footer {
+            text-align: center;
+            color: white;
+            padding: 20px;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>⚙️ Steel Grades & Welding Standards</h1>
+            <p class="subtitle">Referensi Lengkap untuk Fabrikasi & Quality Control Welding</p>
+        </header>
+
+        <div class="nav-tabs">
+            <button class="tab-btn active" onclick="showTab('carbon-steel')">Carbon Steel</button>
+            <button class="tab-btn" onclick="showTab('stainless-steel')">Stainless Steel</button>
+            <button class="tab-btn" onclick="showTab('alloy-steel')">Alloy Steel</button>
+            <button class="tab-btn" onclick="showTab('material-equivalent')">Material Equivalent</button>
+            <button class="tab-btn" onclick="showTab('jis-standards')">JIS Standards</button>
+            <button class="tab-btn" onclick="showTab('din-en-standards')">DIN/EN Standards</button>
+            <button class="tab-btn" onclick="showTab('welding-standards')">Welding Standards</button>
+            <button class="tab-btn" onclick="showTab('wps-pqr')">WPS & PQR</button>
+            <button class="tab-btn" onclick="showTab('ndt-testing')">NDT Testing</button>
+            <button class="tab-btn" onclick="showTab('welding-defects')">Welding Defects</button>
+        </div>
+
+        <!-- Carbon Steel Section -->
+        <div id="carbon-steel" class="content-section active">
+            <h2>Carbon Steel Grades - Complete Reference</h2>
+            
+            <h3>ASTM A36/A36M - Structural Steel</h3>
+            <div class="steel-card">
+                <h4>ASTM A36</h4>
+                <p><strong>Aplikasi:</strong> Struktur umum, bangunan, jembatan, towers</p>
+                <p><strong>Tensile Strength:</strong> 400-550 MPa</p>
+                <p><strong>Yield Strength:</strong> 250 MPa minimum</p>
+                <p><strong>Carbon Content:</strong> 0.26% max</p>
+                <p><strong>Elongation:</strong> 20% min (200mm), 23% min (50mm)</p>
+                <div><span class="tag">Weldable</span><span class="tag">Economical</span><span class="tag">Most Common</span></div>
+            </div>
+
+            <h3>ASTM A516/A516M - Pressure Vessel Plates</h3>
+            <div class="steel-grid">
+                <div class="steel-card">
+                    <h4>A516 Grade 55</h4>
+                    <p><strong>Tensile:</strong> 380-515 MPa</p>
+                    <p><strong>Yield:</strong> 205 MPa min</p>
+                    <p><strong>Temperature:</strong> -30°C to 400°C</p>
+                </div>
+                <div class="steel-card">
+                    <h4>A516 Grade 60</h4>
+                    <p><strong>Tensile:</strong> 415-550 MPa</p>
+                    <p><strong>Yield:</strong> 220 MPa min</p>
+                    <p><strong>Temperature:</strong> -45°C to 400°C</p>
+                </div>
+                <div class="steel-card">
+                    <h4>A516 Grade 65</h4>
+                    <p><strong>Tensile:</strong> 450-585 MPa</p>
+                    <p><strong>Yield:</strong> 240 MPa min</p>
+                    <p><strong>Temperature:</strong> -45°C to 400°C</p>
+                </div>
+                <div class="steel-card">
+                    <h4>A516 Grade 70</h4>
+                    <p><strong>Tensile:</strong> 485-620 MPa</p>
+                    <p><strong>Yield:</strong> 260 MPa min</p>
+                    <p><strong>Temperature:</strong> -45°C to 400°C</p>
+                    <div><span class="tag">Most Popular</span></div>
+                </div>
+            </div>
+
+            <h3>Complete Carbon Steel Comparison Table</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Material Grade</th>
+                        <th>Standard</th>
+                        <th>Tensile (MPa)</th>
+                        <th>Yield (MPa)</th>
+                        <th>Elongation %</th>
+                        <th>Aplikasi Utama</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>A36</td>
+                        <td>ASTM A36</td>
+                        <td>400-550</td>
+                        <td>250 min</td>
+                        <td>20-23</td>
+                        <td>Struktur umum</td>
+                    </tr>
+                    <tr>
+                        <td>A53 Gr.A</td>
+                        <td>ASTM A53</td>
+                        <td>330 min</td>
+                        <td>205 min</td>
+                        <td>-</td>
+                        <td>Pipa general</td>
+                    </tr>
+                    <tr>
+                        <td>A53 Gr.B</td>
+                        <td>ASTM A53</td>
+                        <td>415 min</td>
+                        <td>240 min</td>
+                        <td>-</td>
+                        <td>Pipa mechanical</td>
+                    </tr>
+                    <tr>
+                        <td>A106 Gr.A</td>
+                        <td>ASTM A106</td>
+                        <td>330 min</td>
+                        <td>205 min</td>
+                        <td>-</td>
+                        <td>Pipa high temp</td>
+                    </tr>
+                    <tr>
+                        <td>A106 Gr.B</td>
+                        <td>ASTM A106</td>
+                        <td>415 min</td>
+                        <td>240 min</td>
+                        <td>-</td>
+                        <td>Pipa high temp</td>
+                    </tr>
+                    <tr>
+                        <td>A106 Gr.C</td>
+                        <td>ASTM A106</td>
+                        <td>485 min</td>
+                        <td>275 min</td>
+                        <td>-</td>
+                        <td>Pipa high temp/pressure</td>
+                    </tr>
+                    <tr>
+                        <td>A179</td>
+                        <td>ASTM A179</td>
+                        <td>325 min</td>
+                        <td>180 min</td>
+                        <td>35</td>
+                        <td>Heat exchanger tubes</td>
+                    </tr>
+                    <tr>
+                        <td>A192</td>
+                        <td>ASTM A192</td>
+                        <td>325 min</td>
+                        <td>-</td>
+                        <td>35</td>
+                        <td>Boiler tubes</td>
+                    </tr>
+                    <tr>
+                        <td>A210 Gr.A-1</td>
+                        <td>ASTM A210</td>
+                        <td>415 min</td>
+                        <td>255 min</td>
+                        <td>30</td>
+                        <td>Boiler & superheater</td>
+                    </tr>
+                    <tr>
+                        <td>A283 Gr.A</td>
+                        <td>ASTM A283</td>
+                        <td>310-415</td>
+                        <td>165 min</td>
+                        <td>30</td>
+                        <td>Tangki low/medium</td>
+                    </tr>
+                    <tr>
+                        <td>A283 Gr.B</td>
+                        <td>ASTM A283</td>
+                        <td>345-450</td>
+                        <td>185 min</td>
+                        <td>28</td>
+                        <td>Tangki low/medium</td>
+                    </tr>
+                    <tr>
+                        <td>A283 Gr.C</td>
+                        <td>ASTM A283</td>
+                        <td>380-515</td>
+                        <td>205 min</td>
+                        <td>25</td>
+                        <td>Tangki atmosferik</td>
+                    </tr>
+                    <tr>
+                        <td>A283 Gr.D</td>
+                        <td>ASTM A283</td>
+                        <td>415-550</td>
+                        <td>230 min</td>
+                        <td>23</td>
+                        <td>Tangki medium pressure</td>
+                    </tr>
+                    <tr>
+                        <td>A285 Gr.A</td>
+                        <td>ASTM A285</td>
+                        <td>310-415</td>
+                        <td>165 min</td>
+                        <td>27</td>
+                        <td>Pressure vessel low</td>
+                    </tr>
+                    <tr>
+                        <td>A285 Gr.B</td>
+                        <td>ASTM A285</td>
+                        <td>345-450</td>
+                        <td>185 min</td>
+                        <td>25</td>
+                        <td>Pressure vessel low</td>
+                    </tr>
+                    <tr>
+                        <td>A285 Gr.C</td>
+                        <td>ASTM A285</td>
+                        <td>380-515</td>
+                        <td>205 min</td>
+                        <td>22</td>
+                        <td>Pressure vessel medium</td>
+                    </tr>
+                    <tr>
+                        <td>A333 Gr.1</td>
+                        <td>ASTM A333</td>
+                        <td>380 min</td>
+                        <td>205 min</td>
+                        <td>30</td>
+                        <td>Low temp service -45°C</td>
+                    </tr>
+                    <tr>
+                        <td>A333 Gr.6</td>
+                        <td>ASTM A333</td>
+                        <td>415 min</td>
+                        <td>240 min</td>
+                        <td>30</td>
+                        <td>Low temp service -45°C</td>
+                    </tr>
+                    <tr>
+                        <td>A334 Gr.1</td>
+                        <td>ASTM A334</td>
+                        <td>380 min</td>
+                        <td>205 min</td>
+                        <td>30</td>
+                        <td>Low temp tubes</td>
+                    </tr>
+                    <tr>
+                        <td>A334 Gr.6</td>
+                        <td>ASTM A334</td>
+                        <td>415 min</td>
+                        <td>240 min</td>
+                        <td>30</td>
+                        <td>Low temp tubes -45°C</td>
+                    </tr>
+                    <tr>
+                        <td>A350 LF2</td>
+                        <td>ASTM A350</td>
+                        <td>485-655</td>
+                        <td>275 min</td>
+                        <td>20</td>
+                        <td>Forged flanges low temp</td>
+                    </tr>
+                    <tr>
+                        <td>A420 WPL6</td>
+                        <td>ASTM A420</td>
+                        <td>415 min</td>
+                        <td>240 min</td>
+                        <td>30</td>
+                        <td>Pipe fittings low temp</td>
+                    </tr>
+                    <tr>
+                        <td>A515 Gr.60</td>
+                        <td>ASTM A515</td>
+                        <td>415-550</td>
+                        <td>220 min</td>
+                        <td>21</td>
+                        <td>Pressure vessel medium</td>
+                    </tr>
+                    <tr>
+                        <td>A515 Gr.65</td>
+                        <td>ASTM A515</td>
+                        <td>450-585</td>
+                        <td>240 min</td>
+                        <td>19</td>
+                        <td>Pressure vessel medium</td>
+                    </tr>
+                    <tr>
+                        <td>A515 Gr.70</td>
+                        <td>ASTM A515</td>
+                        <td>485-620</td>
+                        <td>260 min</td>
+                        <td>17</td>
+                        <td>Pressure vessel medium</td>
+                    </tr>
+                    <tr>
+                        <td>A516 Gr.55</td>
+                        <td>ASTM A516</td>
+                        <td>380-515</td>
+                        <td>205 min</td>
+                        <td>27</td>
+                        <td>Pressure vessel moderate</td>
+                    </tr>
+                    <tr>
+                        <td>A516 Gr.60</td>
+                        <td>ASTM A516</td>
+                        <td>415-550</td>
+                        <td>220 min</td>
+                        <td>25</td>
+                        <td>Pressure vessel moderate</td>
+                    </tr>
+                    <tr>
+                        <td>A516 Gr.65</td>
+                        <td>ASTM A516</td>
+                        <td>450-585</td>
+                        <td>240 min</td>
+                        <td>23</td>
+                        <td>Pressure vessel moderate</td>
+                    </tr>
+                    <tr>
+                        <td>A516 Gr.70</td>
+                        <td>ASTM A516</td>
+                        <td>485-620</td>
+                        <td>260 min</td>
+                        <td>21</td>
+                        <td>Pressure vessel moderate</td>
+                    </tr>
+                    <tr>
+                        <td>A524 Gr.I</td>
+                        <td>ASTM A524</td>
+                        <td>415-550</td>
+                        <td>220 min</td>
+                        <td>-</td>
+                        <td>Seamless carbon pipe</td>
+                    </tr>
+                    <tr>
+                        <td>A524 Gr.II</td>
+                        <td>ASTM A524</td>
+                        <td>450-585</td>
+                        <td>240 min</td>
+                        <td>-</td>
+                        <td>Seamless carbon pipe</td>
+                    </tr>
+                    <tr>
+                        <td>A537 Cl.1</td>
+                        <td>ASTM A537</td>
+                        <td>485-620</td>
+                        <td>345 min</td>
+                        <td>18</td>
+                        <td>Pressure vessel HT Q&T</td>
+                    </tr>
+                    <tr>
+                        <td>A537 Cl.2</td>
+                        <td>ASTM A537</td>
+                        <td>485-655</td>
+                        <td>415 min</td>
+                        <td>17</td>
+                        <td>Pressure vessel HT Q&T</td>
+                    </tr>
+                    <tr>
+                        <td>A570 Gr.30</td>
+                        <td>ASTM A570</td>
+                        <td>310 min</td>
+                        <td>165 min</td>
+                        <td>26</td>
+                        <td>Hot rolled carbon sheet</td>
+                    </tr>
+                    <tr>
+                        <td>A570 Gr.40</td>
+                        <td>ASTM A570</td>
+                        <td>345 min</td>
+                        <td>220 min</td>
+                        <td>22</td>
+                        <td>Hot rolled carbon sheet</td>
+                    </tr>
+                    <tr>
+                        <td>A5
